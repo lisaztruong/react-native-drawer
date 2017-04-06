@@ -125,7 +125,6 @@ export class RNDrawerDemo extends Component {
           acceptDoubleTap={this.state.acceptDoubleTap}
           acceptPan={this.state.acceptPan}
           tapToClose={this.state.tapToClose}
-          negotiatePan={this.state.negotiatePan}
           rightSide={this.state.rightSide}
           />
       </Drawer>
