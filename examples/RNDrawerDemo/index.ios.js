@@ -4,6 +4,8 @@
  */
 import React, { Component } from 'react';
 import {
+  StyleSheet,
+  TouchableOpacity,
   AppRegistry,
   Text,
   View,
@@ -21,6 +23,7 @@ const drawerStyles = {
 import Drawer from 'react-native-drawer';
 import MyMainView from './MyMainView';
 import MyControlPanel from './ControlPanel';
+
 // import tweens from './tweens';
 
 let counter = 0;
@@ -75,11 +78,39 @@ export class RNDrawerDemo extends Component {
     this.setState(frag);
   }
 
+  goToLisa() {
+  this.props.navigator.push({
+    component: Lisa,
+    title: 'Lisa',
+  })
+}
+
+goToNewsfeed() {
+  this.props.navigator.push({
+    component: Newsfeed,
+    title: 'Newsfeed',
+  })
+}
+
+goToLogin() {
+  this.props.navigator.push({
+    component: Login,
+    title: 'Login',
+  })
+}
+goToSignup() {
+  this.props.navigator.push({
+    component: Signup,
+    title: 'Sign up'
+  })
+}
+
   render() {
     var controlPanel = <MyControlPanel closeDrawer={() => {
       this.drawer.close();
     }} />
     return (
+
       <Drawer
         ref={c => this.drawer = c}
         type={this.state.drawerType}
@@ -117,19 +148,75 @@ export class RNDrawerDemo extends Component {
           tweenHandlerOn={this.state.tweenHandlerOn}
           disabled={this.state.disabled}
           panThreshold={this.state.panThreshold}
-          tweenEasing={this.state.tweenEasing}
-          tweenHandlerPreset={this.state.tweenHandlerPreset}
-          animation={this.state.animation}
-          noopChange={this.noopChange.bind(this)}
+
           acceptTap={this.state.acceptTap}
           acceptDoubleTap={this.state.acceptDoubleTap}
           acceptPan={this.state.acceptPan}
           tapToClose={this.state.tapToClose}
+
           rightSide={this.state.rightSide}
+
+
           />
+          <View style={{alignItems: 'center', justifyContent: 'center', flex: 1}}>
+        <TouchableOpacity onPress={this.goToLogin.bind(this)} style={lisastyles.button}>
+          <Text style={lisastyles.buttonText}>
+            Login
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={this.goToSignup.bind(this)} style={lisastyles.button}>
+          <Text style={lisastyles.buttonText}>
+            Sign up
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={this.goToNewsfeed.bind(this)} style={lisastyles.button}>
+          <Text style={lisastyles.buttonText}>
+            -nf-
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={this.goToLisa.bind(this)} style={lisastyles.lisabutton}>
+          <Text style={lisastyles.buttonText}>
+            LISA
+          </Text>
+        </TouchableOpacity>
+      </View>
       </Drawer>
     );
   }
 }
+
+var lisastyles = StyleSheet.create({
+  buttonText: {
+    fontSize: 40,
+    color: 'white',
+    alignSelf: 'center'
+  },
+  button: {
+    height: 80,
+    width: 160,
+    backgroundColor: '#48BBEC',
+    borderColor: '#48BBEC',
+    borderWidth: 1,
+    borderRadius: 80,
+    marginBottom: 10,
+    alignSelf: 'stretch',
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'center'
+  },
+  lisabutton: {
+    height: 80,
+    width: 160,
+    backgroundColor: 'pink',
+    borderColor: 'pink',
+    borderWidth: 1,
+    borderRadius: 80,
+    marginBottom: 10,
+    alignSelf: 'stretch',
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'center'
+  }
+});
 
 AppRegistry.registerComponent('RNDrawerDemo', () => RNDrawerDemo);
