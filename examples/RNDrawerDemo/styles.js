@@ -11,7 +11,8 @@ module.exports = StyleSheet.create({
   },
   controlPanel: {
     flex: 1,
-    backgroundColor:'#326945',
+    // backgroundColor:'#326945',
+    backgroundColor: 'pink'
   },
   controlPanelText: {
     color:'white',
@@ -95,12 +96,12 @@ module.exports = StyleSheet.create({
     marginBottom: 5,
   },
   button: {
-    backgroundColor: 'white',
+    backgroundColor: '#41EAD4',
     padding: 15,
-    borderColor: '#eeeeee',
+    borderColor: '#41EAD4',
     borderWidth:1,
     borderBottomWidth: 1 / PixelRatio.get(),
-    borderBottomColor: '#aaaaaa',
+    borderBottomColor: '#41EAD4',
     marginRight:20,
     marginLeft:20,
     alignSelf: 'center',

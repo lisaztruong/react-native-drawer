@@ -21,8 +21,7 @@ const drawerStyles = {
 import Drawer from 'react-native-drawer';
 import MyMainView from './MyMainView';
 import MyControlPanel from './ControlPanel';
-
-import tweens from './tweens';
+// import tweens from './tweens';
 
 let counter = 0;
 export class RNDrawerDemo extends Component {
